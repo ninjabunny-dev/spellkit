@@ -2,9 +2,12 @@
   "name": "spellkit",
   "version": "0.0.1",
   "description": "Web Components UI Library",
-  "main": "index.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha \"src/**/*.test.js\" --recursive --require esm",
+    "e2e": "playwright test",
+    "test:all": "npm run test && npm run e2e"
   },
   "repository": {
     "type": "git",
@@ -14,5 +17,10 @@
     "web-components"
   ],
   "author": "NinjaBunny",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "chai": "^6.2.1",
+    "mocha": "^11.7.5"
+  }
 }

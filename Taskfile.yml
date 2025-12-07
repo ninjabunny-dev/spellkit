@@ -1,0 +1,19 @@
+version: '3'
+
+includes:
+  web-component: ./taskfiles/web-component/Taskfile.yml
+  create_from_template: ./taskfiles/file_template/Taskfile.yml
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  test-create-file:
+    - task: create_from_template:create-file
+      vars:
+        file_path: "./test-output/hello.txt"
+        template: "./template-test.txt"
+        options:
+          map:
+            name: John Doe
+            project: test-product

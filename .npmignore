@@ -1,0 +1,8 @@
+src/**/tests/
+taskfiles/
+tests/
+.gitignore
+playwright.config.js
+README.md
+Taskfile.yml
+test-setup.js

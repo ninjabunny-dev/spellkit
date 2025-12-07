@@ -1,11 +1,10 @@
 {
-  "name": "@ninjabunny_dev/spellkit",
+  "name": "{{project_name}}",
   "version": "0.0.1",
   "description": "Web Components UI Library",
   "main": "src/index.js",
   "module": "src/index.js",
   "type": "module",
-  "include": ["src"],
   "scripts": {
     "test:unit": "mocha \"src/**/tests/*.test.js\" --recursive --require ./test-setup.js",
     "test:e2e": "playwright test",
@@ -15,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@192.168.68.51:ninjabunny_dev/spellkit.git"
+    "url": "{{ git_url }}"
   },
   "keywords": [
     "web-components"
   ],
-  "author": "NinjaBunny",
+  "author": "{{ auther }}",
   "license": "MIT",
   "devDependencies": {
     "@happy-dom/global-registrator": "^20.0.11",

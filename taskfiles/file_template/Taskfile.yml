@@ -1,0 +1,26 @@
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  create-file:
+    desc: Create a file from a template with placeholder replacement
+    vars:
+      SCRIPT_PATH: "{{.USER_WORKING_DIR}}/taskfiles/create_from_template/scripts/create-file-from-template.sh"
+    cmds:
+      - |
+        bash -c 'OPTIONS="";
+        {{range $key, $value := .options}}
+          if [ -z "$OPTIONS" ];
+            then OPTIONS="{{$key}}={{$value}}";
+            else OPTIONS="$OPTIONS {{$key}}={{$value}}";
+          fi;
+        {{end}}
+        "{{.SCRIPT_PATH}}" "{{.file_path}}" "{{.template}}" $OPTIONS'
+    silent: true
